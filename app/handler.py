@@ -1,20 +1,26 @@
 """
-Development handler.
-
-RunPod integration will be added later.
+RunPod Entry Point
 """
 
-from app.health import get_health
+import runpod
+
+from app.flux_model import FluxModel
+
+model = FluxModel()
 
 
-def handle_request(payload: dict) -> dict:
+def handler(job):
 
-    mode = payload.get("mode", "health")
-
-    if mode == "health":
-        return get_health()
+    model.load()
 
     return {
-        "status": "error",
-        "message": f"Unsupported mode: {mode}"
+        "success": True,
+        "status": "READY"
     }
+
+
+runpod.serverless.start(
+    {
+        "handler": handler
+    }
+)

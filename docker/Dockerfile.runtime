@@ -17,4 +17,4 @@ RUN pip install -r /tmp/requirements.txt
 
 COPY . .
 
-CMD ["python", "handler.py"]
+CMD ["python", "-m", "app.handler"]

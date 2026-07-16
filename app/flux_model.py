@@ -41,13 +41,20 @@ class FluxModel:
 
         self._pipe = DiffusionPipeline.from_pretrained(
             CONFIG.MODEL_ID,
-            torch_dtype=torch.bfloat16,
+            torch_dtype=CONFIG.DTYPE,
             token=token,
             cache_dir=CONFIG.CACHE_DIR,
         )
 
-        self._pipe.to(CONFIG.DEVICE)
-
+        if CONFIG.DEVICE == "cuda":
+            self._pipe.to("cuda")
+        
+        print("=" * 60)
+        print("Model :", CONFIG.MODEL_ID)
+        print("Device:", CONFIG.DEVICE)
+        print("DType :", CONFIG.DTYPE)
+        print("Cache :", CONFIG.CACHE_DIR)
+        print("=" * 60)
         print("FLUX model loaded.")
 
     def unload(self):

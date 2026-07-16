@@ -1,16 +1,23 @@
-runpod==1.7.13
+# -----------------------------------------------------------------------------
+# Runtime Validation Environment
+# ezy-image-worker
+# -----------------------------------------------------------------------------
 
-torch
-torchvision
-torchaudio
+# RunPod
+runpod==1.7.0
 
-diffusers>=0.35.0
-transformers>=4.56.0
+# Hugging Face
+huggingface_hub>=0.35.0
+
+# Official FLUX.2 dependencies
+git+https://github.com/huggingface/diffusers.git
+
+transformers>=4.57.0
 accelerate>=1.10.0
 safetensors>=0.6.2
 
-huggingface_hub>=0.34.4
-
-Pillow
-protobuf
+# Utilities
 sentencepiece
+protobuf
+Pillow
+requests

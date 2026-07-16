@@ -35,6 +35,8 @@ class FluxModel:
         if self.loaded:
             return
 
+        os.makedirs(CONFIG.CACHE_DIR, exist_ok=True)
+
         print("Loading FLUX model...")
 
         token = os.environ.get("HF_TOKEN")

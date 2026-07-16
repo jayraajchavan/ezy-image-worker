@@ -32,10 +32,10 @@ class Settings:
     DEFAULT_STEPS = int(os.getenv("DEFAULT_STEPS", "4"))
     DEFAULT_GUIDANCE = float(os.getenv("DEFAULT_GUIDANCE", "1.0"))
 
-    # Cache
+    # Cache directory
     CACHE_DIR = os.getenv(
         "CACHE_DIR",
-        "/runpod-volume/huggingface"
+        "/app/cache"
     )
 
 
